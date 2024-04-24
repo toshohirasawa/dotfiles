@@ -1,0 +1,13 @@
+{{- $email := promptStringOnce . "email" "Email Address" "tosho.hirasawa@gmail.com" }}
+{{- $fullname := promptStringOnce . "fullname" "Full name" "Tosho Hirasawa" -}}
+{{- $pubkey := "" -}}
+{{- if (eq .chezmoi.os "darwin") -}}
+{{- $pubkey = promptStringOnce . "pubkey" "SSH public key (ECDSA)" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMeVKlGGUnP+Gqej/sD4UyRLHjcCrcx7O4Zgfepo1+gl" -}}
+{{- end -}}
+
+[data]
+    email = {{ $email | quote }}
+    fullname = {{ $fullname | quote }}
+{{- if (eq .chezmoi.os "darwin") }}
+    pubkey = {{ $pubkey | quote }}
+{{ end -}}

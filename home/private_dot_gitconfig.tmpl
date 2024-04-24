@@ -1,0 +1,33 @@
+[user]
+	name = {{ .fullname | quote }}
+	email = {{ .email | quote }}
+{{- if (eq .chezmoi.os "darwin") }}
+	signingkey = {{ .pubkey | quote }}
+{{ end }}
+[core]
+	editor = {{ if (eq .chezmoi.os "darwin") }}code --wait{{ else }}vim{{ end }}
+	quotepath = false
+	excludesfile = ~/.gitignore
+{{ if (eq .chezmoi.os "darwin") }}
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
+[commit]
+	gpgsign = true
+
+[diff]
+	tool = vscode
+
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+
+[merge]
+	tool = vscode
+
+[mergetool "vscode"]
+	cmd = code \"$MERGED\"
+	trustExitCode = false
+{{ end }}
