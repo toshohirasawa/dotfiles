@@ -20,3 +20,7 @@
     url = "https://github.com/pyenv/pyenv/archive/refs/tags/v2.4.0.tar.gz"
     exact = true
     stripComponents = 1
+[".pyenv/plugins/pyenv-update"]
+    type = "git-repo"
+    url = "https://github.com/pyenv/pyenv-update.git"
+    refreshPeriod = "168h"
