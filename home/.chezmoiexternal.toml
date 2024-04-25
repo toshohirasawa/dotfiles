@@ -1,26 +1,20 @@
 [".oh-my-zsh"]
-    type = "archive"
-    url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
+    type = "git-repo"
+    url = "https://github.com/ohmyzsh/ohmyzsh.git"
     refreshPeriod = "168h"
 [".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
-    type = "archive"
-    url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
+    type = "git-repo"
+    url = "https://github.com/zsh-users/zsh-syntax-highlighting.git"
     refreshPeriod = "168h"
 [".oh-my-zsh/custom/themes/powerlevel10k"]
-    type = "archive"
-    url = "https://github.com/romkatv/powerlevel10k/archive/v1.15.0.tar.gz"
-    exact = true
+    type = "git-repo"
+    url = "https://github.com/romkatv/powerlevel10k.git"
     stripComponents = 1
 [".pyenv"]
-    type = "archive"
-    url = "https://github.com/pyenv/pyenv/archive/refs/tags/v2.4.0.tar.gz"
-    exact = true
-    stripComponents = 1
-[".pyenv/plugins/pyenv-update"]
     type = "git-repo"
-    url = "https://github.com/pyenv/pyenv-update.git"
+    url = "https://github.com/pyenv/pyenv.git"
+    refreshPeriod = "168h"
+[".pyenv/plugins/pyenv-virtualenv"]
+    type = "git-repo"
+    url = "https://github.com/pyenv/pyenv-virtualenv"
     refreshPeriod = "168h"

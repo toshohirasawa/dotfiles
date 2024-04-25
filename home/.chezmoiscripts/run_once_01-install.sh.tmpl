@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+# avoid password prompt during install
+sudo -v
+
+# Pre-installed Python fails Poetry installation on macOS
+# https://github.com/python-poetry/install.python-poetry.org/issues/52
+{{ include "../install/macos/pyenv.sh" }}
+install_pyenv
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# install latest version
+(pyenv versions | grep {{ .python_version }} &>/dev/null) || pyenv install {{ .python_version }}
+pyenv shell {{ .python_version }}
+pyenv rehash
+
+{{ if eq .chezmoi.os "darwin" -}}
+{{   include "../install/macos/homebrew.sh" }}
+{{   include "../install/macos/chezmoi.sh" }}
+{{   include "../install/macos/iterm2.sh" }}
+{{   include "../install/macos/karabiner-elements.sh" }}
+{{   include "../install/macos/moom.sh" }}
+{{   include "../install/macos/poetry.sh" }}
+{{   include "../install/macos/alfred.sh" }}
+{{   include "../install/macos/google-chrome.sh" }}
+{{   include "../install/macos/google-japanese-ime.sh" }}
+{{   include "../install/macos/google-drive.sh" }}
+{{   include "../install/macos/visual-studio-code.sh" }}
+{{   include "../install/macos/slack.sh" }}
+{{   include "../install/macos/workflowy.sh" }}
+{{   include "../install/macos/obsidian.sh" }}
+{{   include "../install/macos/todoist.sh" }}
+{{   include "../install/macos/pdf-expert.sh" }}
+{{   include "../install/macos/elgato-stream-deck.sh" }}
+{{   include "../install/macos/publish-or-perish.sh" }}
+{{   include "../install/macos/spotify.sh" }}
+{{   include "../install/macos/zoom.sh" }}
+{{   include "../install/macos/authy.sh" }}
+{{   include "../install/macos/docker.sh" }}
+{{   include "../install/macos/mathpix-snipping-tool.sh" }}
+{{   include "../install/macos/vlc.sh" }}
+
+install_homebrew
+install_chezmoi
+install_iterm2
+install_karabiner-elements
+install_moom
+install_poetry
+install_alfred
+install_google-chrome
+install_google-japanese-ime
+install_google-drive
+install_visual-studio-code
+install_slack
+install_workflowy
+install_obsidian
+install_todoist
+install_pdf-expert
+install_elgato-stream-deck
+install_publish-or-perish
+install_spotify
+install_zoom
+install_authy
+install_docker
+install_mathpix-snipping-tool
+install_vlc
+
+{{ end -}}

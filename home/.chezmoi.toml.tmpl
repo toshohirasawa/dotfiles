@@ -1,9 +1,10 @@
-{{- $email := promptStringOnce . "email" "Email Address" "tosho.hirasawa@gmail.com" }}
-{{- $fullname := promptStringOnce . "fullname" "Full name" "Tosho Hirasawa" -}}
-{{- $pubkey := "" -}}
-{{- if (eq .chezmoi.os "darwin") -}}
-{{- $pubkey = promptStringOnce . "pubkey" "SSH public key (ECDSA)" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMeVKlGGUnP+Gqej/sD4UyRLHjcCrcx7O4Zgfepo1+gl" -}}
-{{- end -}}
+{{ $email := promptStringOnce . "email" "Email Address" "tosho.hirasawa@gmail.com" }}
+{{ $fullname := promptStringOnce . "fullname" "Full name" "Tosho Hirasawa" }}
+{{ $pubkey := "" }}
+{{ if (eq .chezmoi.os "darwin") }}
+{{ $pubkey = promptStringOnce . "pubkey" "SSH public key (ECDSA)" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMeVKlGGUnP+Gqej/sD4UyRLHjcCrcx7O4Zgfepo1+gl" }}
+{{ end }}
+{{ $python_version := promptStringOnce . "python_version" "Python Version" "3.12.3" -}}
 
 [data]
     email = {{ $email | quote }}
@@ -11,3 +12,7 @@
 {{- if (eq .chezmoi.os "darwin") }}
     pubkey = {{ $pubkey | quote }}
 {{ end -}}
+    python_version = {{ $python_version | quote }}
+
+[hooks.read-source-state.pre]
+    command = ".local/share/chezmoi/home/.install-password-manager.sh"
