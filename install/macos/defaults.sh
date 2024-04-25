@@ -3,6 +3,9 @@ function defaults_trackpad() {
 }
 
 function defaults_dock() {
+    defaults write com.apple.dock autohide -bool true
+    defaults write com.apple.dock tilesize -int 60
+
     # Remove all the icons in the Dock
     defaults write com.apple.dock persistent-apps -array ""
     defaults write com.apple.dock recent-apps -array ""
@@ -10,17 +13,19 @@ function defaults_dock() {
 
     function dock_item() {
         local app_file_path="$1"
-        printf '
-        <dict>
-            <key>tile-data</key>
-                <dict>
-                    <key>file-data</key>
-                        <dict>
-                            <key>_CFURLString</key><string>%s</string>
-                            <key>_CFURLStringType</key><integer>0</integer>
-                        </dict>
-                </dict>
-        </dict>', "${app_file_path}"
+        if [ -e "${app_file_path}" ]; then
+            printf '
+            <dict>
+                <key>tile-data</key>
+                    <dict>
+                        <key>file-data</key>
+                            <dict>
+                                <key>_CFURLString</key><string>%s</string>
+                                <key>_CFURLStringType</key><integer>0</integer>
+                            </dict>
+                    </dict>
+            </dict>', "${app_file_path}"
+        fi
     }
 
     function get_system_app_path() {
@@ -45,8 +50,12 @@ function defaults_dock() {
         "$(dock_item /Applications/WorkFlowy.app)" \
         "$(dock_item /Applications/Obsidian.app)" \
         "$(dock_item /Applications/Slack.app)" \
+        "$(dock_item /Applications/Discord.app)" \
         "$(dock_item /Applications/Microsoft\ Teams\ classic.app)" \
         "$(dock_item /Applications/Microsoft\ Outlook.app)" \
+        "$(dock_item /Applications/PDF\ Expert.app)" \
+        "$(dock_item /Applications/Spotify.app)" \
+        "$(dock_item /Applications/Steam.app)" \
         "$(dock_item "$(get_system_app_path)")"
 }
 
