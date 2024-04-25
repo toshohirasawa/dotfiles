@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "dummy = ListNode(0, head)\nslow, fast = dummy, head\nfor _ in range(n):\n    fast = fast.next\n\nwhile fast:\n    fast = fast.next\n    slow = slow.next\n\nslow.next = slow.next.next\n\nreturn dummy.next",
+    "uid" : "AB2882DF-5084-4C04-B201-3358EA03DF9A",
+    "name" : "remove last n-th element from linked node",
+    "keyword" : "ll-rm_last_n_th"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "if root is None:\n    return 0\nelse:\n    left_height = self.maxDepth(root.left)\n    right_height = self.maxDepth(root.right)\n    return max(left_height, right_height) + 1",
+    "uid" : "526436B3-40A7-43C7-9912-F42ECE9CFBF6",
+    "name" : "binary tree depth-first search",
+    "keyword" : "bt-dfs"
+  }
+}

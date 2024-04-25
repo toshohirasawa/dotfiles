@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "from heapq import heapify, heappush, heappop",
+    "uid" : "677C3789-4782-4702-9FE6-6EFAEAF82671",
+    "name" : "Enable heap",
+    "keyword" : "heap"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "from collections import defaultdict\nfrom sys import stdin\nfrom collections import deque\n\ninf = float('inf')\n\n# graph construction\ngraph = defaultdict(list)\nfor x, y, t in stdin:\n    graph[x].append((t, y))\n    graph[y].append((t, x))\nn = len(graph)\n\n# history\nearliest = [inf] * n\nearliest[0] = 0\n\n# initial search queues\nq = deque()\nq.append((0, 0))\n\n# while the search queues is updated\nwhile q:\n    # select first one\n    person, time = q.popleft()\n    # run search\n    for t, next_person in graph[person]:\n        # if the result meets the condition\n        if t >= time and earliest[next_person] > t:\n            # update the stop condition for this node\n            earliest[next_person] = t\n            # add to the search queue\n            q.append((next_person, t))\n\nans = [i for i in range(n) if earliest[i] != inf]",
+    "uid" : "E504FCC1-2C1C-4532-8111-DFA6312B07AB",
+    "name" : "Temporal graph depth-first search",
+    "keyword" : "graph-temporal_dfs"
+  }
+}

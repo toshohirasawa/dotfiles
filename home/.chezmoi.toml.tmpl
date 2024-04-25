@@ -4,7 +4,8 @@
 {{ if (eq .chezmoi.os "darwin") }}
 {{ $pubkey = promptStringOnce . "pubkey" "SSH public key (ECDSA)" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMeVKlGGUnP+Gqej/sD4UyRLHjcCrcx7O4Zgfepo1+gl" }}
 {{ end }}
-{{ $python_version := promptStringOnce . "python_version" "Python Version" "3.12.3" -}}
+{{ $python_version := promptStringOnce . "python_version" "Python Version" "3.12.3" }}
+{{ $todoist_token := promptStringOnce . "todoist_token" "Todoist Token" -}}
 
 [data]
     email = {{ $email | quote }}
@@ -13,3 +14,4 @@
     pubkey = {{ $pubkey | quote }}
 {{ end -}}
     python_version = {{ $python_version | quote }}
+    todoist_token = {{ $todoist_token | quote }}

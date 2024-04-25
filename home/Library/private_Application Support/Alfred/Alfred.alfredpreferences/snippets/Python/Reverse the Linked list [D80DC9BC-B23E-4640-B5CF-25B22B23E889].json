@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "curr, prev = head, None\nwhile curr:\n    curr.next, prev, curr = prev, curr, curr.next\nhead = prev",
+    "uid" : "D80DC9BC-B23E-4640-B5CF-25B22B23E889",
+    "name" : "Reverse the Linked list",
+    "keyword" : "ll-reverse"
+  }
+}

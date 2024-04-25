@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "first, second = head1, head2\nwhile first:\n    first.next, first = second, first.next\n    if second:\n        second.next, second = first, second.next",
+    "uid" : "4935AE89-C080-4E93-AEA9-2824D5D648AD",
+    "name" : "Merge two Linked lists",
+    "keyword" : "ll-merge"
+  }
+}

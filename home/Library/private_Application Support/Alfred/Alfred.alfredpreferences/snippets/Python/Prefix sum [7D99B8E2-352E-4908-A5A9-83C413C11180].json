@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "def prefix_sum(node, csum, history, targetSum=0):\n    if not node:\n        return 0\n    \n    csum += node.val\n    # subarray starts from the beginning\n    cnt = 1 if csum == targetSum else 0\n    # subarray starts somewhere in the middle\n    # the sum to the beginning of the subarray\n    # should exist in the history; otherwise 0.\n    cnt += history[csum - targetSum]\n\n    history[csum] += 1\n    cnt += prefix_sum(node.left, csum, history)\n    cnt += prefix_sum(node.right, csum, history)\n    history[csum] -= 1\n\n    return cnt\n\nreturn prefix_sum(root, 0, defaultdict(int))",
+    "uid" : "7D99B8E2-352E-4908-A5A9-83C413C11180",
+    "name" : "Prefix sum",
+    "keyword" : "bt-prefix_sum"
+  }
+}

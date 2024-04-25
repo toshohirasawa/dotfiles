@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "        # https:\/\/leetcode.com\/problems\/contiguous-array\n        # Given a binary array nums, \n        # return the maximum length of a contiguous subarray with an equal number of 0 and 1.\n        max_len, csum, history = 0, 0, {}\n        for i, num in enumerate(nums):\n            csum += 1 if num == 1 else -1\n            if csum == 0:\n                # set the value when subarray till `i` satisfies\n                max_len = i + 1\n            elif csum in history:\n                # set the value when subarray from `history[sum_val]` till `i` satisfies\n                cand = i - history[csum]\n                max_len = max(max_len, cand)\n            else:\n                history[csum] = i\n        return max_len",
+    "uid" : "B835096B-E6CC-430C-9BD8-B19B3674462C",
+    "name" : "Prefix Sum (max length)",
+    "keyword" : "array-prefix_sum"
+  }
+}

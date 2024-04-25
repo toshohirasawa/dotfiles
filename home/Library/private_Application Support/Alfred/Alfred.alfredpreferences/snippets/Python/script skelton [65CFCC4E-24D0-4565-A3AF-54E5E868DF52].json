@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "#!\/usr\/bin\/env python\n\nimport logging\nlogger = logging.getLogger(__name__)\n\nif __name__ == '__main__':\n\n    import sys, os\n    import argparse\n\n    # set the logging format\n    # output log of at least info level to stdout\n    logging.basicConfig(\n            format=\"%(asctime)s - %(levelname)s - %(name)s -   %(message)s\",\n            datefmt=\"%m\/%d\/%Y %H:%M:%S\",\n            level=logging.INFO,\n        )\n\n    parser = argparse.ArgumentParser()\n\n    args = parser.parse_args()\n",
+    "uid" : "65CFCC4E-24D0-4565-A3AF-54E5E868DF52",
+    "name" : "script skelton",
+    "keyword" : "main"
+  }
+}

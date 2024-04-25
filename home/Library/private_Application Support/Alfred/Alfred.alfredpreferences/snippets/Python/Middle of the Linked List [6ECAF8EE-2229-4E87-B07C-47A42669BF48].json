@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "slow = fast = head\nwhile fast and fast.next:\n    slow = slow.next\n    fast = fast.next.next\nmid = slow\n# find the node next to middle for an odd list\n# mid = slow.next if fast else slow",
+    "uid" : "6ECAF8EE-2229-4E87-B07C-47A42669BF48",
+    "name" : "Middle of the Linked List",
+    "keyword" : "ll-mid"
+  }
+}
