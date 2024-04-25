@@ -15,6 +15,7 @@ eval "$(pyenv init -)"
 
 # install latest version
 (pyenv versions | grep {{ .python_version }} &>/dev/null) || pyenv install {{ .python_version }}
+pyenv global {{ .python_version }}
 pyenv shell {{ .python_version }}
 pyenv rehash
 
@@ -68,5 +69,10 @@ install_authy
 install_docker
 install_mathpix-snipping-tool
 install_vlc
+
+{{   include "../install/macos/defaults.sh" }}
+defaults_trackpad
+defaults_dock
+kill_affected_applications
 
 {{ end -}}
