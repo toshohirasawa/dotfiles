@@ -18,3 +18,12 @@
     type = "git-repo"
     url = "https://github.com/pyenv/pyenv-virtualenv"
     refreshPeriod = "168h"
+["Library/Fonts/google-fonts"]
+    type = "git-repo"
+    url = "https://github.com/google/fonts.git"
+    refreshPeriod = "168h"
+["Library/Fonts/udev-gothic"]
+    type = "archive"
+    url = "https://github.com/yuru7/udev-gothic/releases/download/v1.3.1/UDEVGothic_NF_v1.3.1.zip"
+    exact = true
+    stripComponents = 1
