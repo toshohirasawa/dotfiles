@@ -21,6 +21,7 @@ pyenv rehash
 
 {{ if eq .chezmoi.os "darwin" -}}
 {{   include "../install/macos/homebrew.sh" }}
+{{   include "../install/macos/formulae.sh" }}
 {{   include "../install/macos/chezmoi.sh" }}
 {{   include "../install/macos/iterm2.sh" }}
 {{   include "../install/macos/karabiner-elements.sh" }}
@@ -47,6 +48,7 @@ pyenv rehash
 {{   include "../install/macos/font.sh" }}
 
 install_homebrew
+install_formulae
 install_chezmoi
 install_iterm2
 install_karabiner-elements
@@ -73,10 +75,4 @@ install_vlc
 
 install_nerd_font_roboto_mono
 install_nerd_font_hack_mono
-
-{{   include "../install/macos/defaults.sh" }}
-defaults_trackpad
-defaults_dock
-kill_affected_applications
-
 {{ end -}}

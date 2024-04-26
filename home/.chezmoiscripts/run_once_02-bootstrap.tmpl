@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+# avoid password prompt during install
+sudo -v
+
+{{ if eq .chezmoi.os "darwin" -}}
+
+{{   include "../install/macos/defaults.sh" }}
+defaults_trackpad
+defaults_dock
+kill_affected_applications
+
+# restore SSH keys from 1Password
+ssh_sec_key=$HOME/.ssh/id_ed25519
+[ -f $ssh_sec_key ] || (
+    op item get '{{ .op_private_key_id }}' --fields label='private key' --reveal >$ssh_sec_key
+    chmod 600 $ssh_sec_key
+)
+[ -f $ssh_sec_key.pub ] || (
+    op item get '{{ .op_private_key_id }}' --fields label='public key' --reveal >$ssh_sec_key.pub
+)
+
+{{ end -}}

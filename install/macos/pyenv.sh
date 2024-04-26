@@ -3,6 +3,6 @@ function install_pyenv() {
 
     # python-build requirements
     for pkg in openssl readline sqlite3 xz zlib tcl-tk; do
-        brew list $pkg &>/dev/null || brew install $pkg
+        brew list $pkg || brew install $pkg
     done
 }
