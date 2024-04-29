@@ -91,4 +91,11 @@ eval "$(op completion zsh)"; compdef _op op
 
 # iTerm2 integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+function cz-update-source-state() {
+    chezmoi add --encrypt $HOME/.ssh/config
+    chezmoi add --encrypt $HOME/Library/Preferences/com.manytricks.Moom.plist
+    chezmoi add $HOME/.config/karabiner/karabiner.json
+    chezmoi add -r $HOME/Library/Application\ Support/Alfred/Alfred.alfredpreferences
+}
 {{ end }}

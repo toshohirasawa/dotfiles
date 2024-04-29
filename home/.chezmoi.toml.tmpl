@@ -6,7 +6,7 @@
 {{- end }}
 {{- $python_version := promptStringOnce . "python_version" "Python Version" "3.12.3" }}
 {{- $todoist_token := promptStringOnce . "todoist_token" "Todoist Token" -}}
-{{- $op_private_key_id := promptStringOnce . "op_private_key_id" "SSH Key id in 1Password" -}}
+{{- $op_ssh_key_id := promptStringOnce . "op_ssh_key_id" "SSH Key id in 1Password" -}}
 
 [data]
     email = {{ $email | quote }}
@@ -16,11 +16,16 @@
 {{- end }}
     python_version = {{ $python_version | quote }}
     todoist_token = {{ $todoist_token | quote }}
-    op_private_key_id = {{ $op_private_key_id | quote }}
+    op_ssh_key_id = {{ $op_ssh_key_id | quote }}
 
 [edit]
     command = "code"
     args = "--wait"
+
+encryption = "age"
+[age]
+    identity = "{{ .chezmoi.homeDir }}/.ssh/id_ed25519"
+    recipient = "{{ (onepasswordDetailsFields .op_ssh_key_id).public_key.value }}"
 
 {{ if (eq .chezmoi.os "darwin") -}}
 [hooks.read-source-state.pre]

@@ -11,14 +11,14 @@ defaults_trackpad
 defaults_dock
 kill_affected_applications
 
-# restore SSH keys from 1Password
+# restore SSH keys from 1Password to decrypt files (e.g., `.ssh/config`)
 ssh_sec_key=$HOME/.ssh/id_ed25519
 [ -f $ssh_sec_key ] || (
-    op item get '{{ .op_private_key_id }}' --fields label='private key' --reveal >$ssh_sec_key
+    op item get '{{ .op_ssh_key_id }}' --fields label='private key' --reveal >$ssh_sec_key
     chmod 600 $ssh_sec_key
 )
 [ -f $ssh_sec_key.pub ] || (
-    op item get '{{ .op_private_key_id }}' --fields label='public key' --reveal >$ssh_sec_key.pub
+    op item get '{{ .op_ssh_key_id }}' --fields label='public key' --reveal >$ssh_sec_key.pub
 )
 
 {{ end -}}
