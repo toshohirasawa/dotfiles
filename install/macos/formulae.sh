@@ -1,5 +1,7 @@
 BREW_FORMULAE=(
     wget
+    autossh
+    tmux
 )
 function install_formulae() {
     for formula in "${BREW_FORMULAE[@]}"; do
