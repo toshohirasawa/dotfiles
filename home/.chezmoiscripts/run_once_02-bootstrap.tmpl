@@ -21,4 +21,10 @@ ssh_sec_key=$HOME/.ssh/id_ed25519
     op item get '{{ .op_ssh_key_id }}' --fields label='public key' --reveal >$ssh_sec_key.pub
 )
 
+# symbolic link to custom oh-my-zsh plugins
+for plugin in chezmoi ssh; do
+    mkdir -p $HOME/.oh-my-zsh/custom/plugins/$plugin
+    ln -sf {{ .chezmoi.config.sourceDir }}/.oh-my-zsh/custom/plugins/$plugin/$plugin.plugin.zsh \
+        $HOME/.oh-my-zsh/custom/plugins/$plugin
+done
 {{ end -}}
