@@ -2,6 +2,7 @@ BREW_FORMULAE=(
     wget
     autossh
     tmux
+    openfortivpn
 )
 function install_formulae() {
     for formula in "${BREW_FORMULAE[@]}"; do
