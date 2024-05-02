@@ -2,6 +2,7 @@ BREW_FORMULAE=(
     wget
     autossh
     tmux
+    rsync
     openfortivpn
 )
 function install_formulae() {
