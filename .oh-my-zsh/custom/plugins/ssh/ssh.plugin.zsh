@@ -10,7 +10,13 @@ function smux() {
         iterm2_tab_color $RED $GREEN $BLUE
         echo -ne "\033]0;"$REMOTE"\007"
     fi
+
     autossh -M 0 -t $REMOTE tmux new -A -s $SESNAME
+
+    if zstyle -t ':omz:plugins:ssh' ssh-colorization; then
+        iterm2_tab_color_reset
+        echo -ne "\033]0;"$REMOTE"\007"
+    fi
 }
 
 # completion
