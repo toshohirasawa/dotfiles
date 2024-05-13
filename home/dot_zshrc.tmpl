@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+if [ -f $HOME/.localrc ]; then
+    source $HOME/.localrc
+fi
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.local/bin:$PATH
 

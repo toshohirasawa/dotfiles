@@ -1,6 +1,7 @@
 alias cz="chezmoi"
 
 function cz-update-source-state() {
+    chezmoi add --encrypt $HOME/.localrc
     chezmoi add --encrypt $HOME/.ssh/config
     chezmoi add --encrypt $HOME/Library/Preferences/com.manytricks.Moom.plist
     chezmoi add $HOME/.config/karabiner/karabiner.json
