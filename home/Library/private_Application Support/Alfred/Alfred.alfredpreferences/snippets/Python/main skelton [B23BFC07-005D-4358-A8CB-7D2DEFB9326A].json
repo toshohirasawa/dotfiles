@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "#!\/usr\/bin\/env python3\nfrom tap import Tap\nimport sys\n\nclass Args(Tap):\n    pass\n\ndef main(args: Args):\n    pass\n\nif __name__ == \"__main__\":\n    args = Args().parse_args()\n    print(args, file=sys.stderr)\n\n    main(args)",
+    "uid" : "B23BFC07-005D-4358-A8CB-7D2DEFB9326A",
+    "name" : "main skelton",
+    "keyword" : "main"
+  }
+}

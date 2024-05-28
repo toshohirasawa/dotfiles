@@ -4,6 +4,7 @@ BREW_FORMULAE=(
     tmux
     rsync
     openfortivpn
+    zsh-syntax-highlighting
 )
 function install_formulae() {
     for formula in "${BREW_FORMULAE[@]}"; do

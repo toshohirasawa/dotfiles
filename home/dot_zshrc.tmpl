@@ -14,8 +14,8 @@ eval "$(pyenv init -)"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="wezm"
-plugins=(git tmux ssh ssh-agent 1password python pyenv poetry chezmoi iterm2)
+ZSH_THEME="ys"
+plugins=(git tmux ssh ssh-agent 1password python pyenv poetry chezmoi iterm2 abci tmu)
 zstyle ':omz:update' mode disabled  # disable automatic updates
 zstyle ':omz:plugins:iterm2' shell-integration true # enable iTerm2 shell integration
 zstyle ':omz:plugins:ssh' ssh-colorization true # enable colorize smux tabs
@@ -30,4 +30,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 {{- if (eq .chezmoi.os "darwin") }}
 # Disable updating homebrew on every execution
 export HOMEBREW_NO_AUTO_UPDATE=1
+export PATH="/Users/tosho.hirasawa/.rd/bin:$PATH"
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 {{ end }}

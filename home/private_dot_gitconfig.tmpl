@@ -7,7 +7,7 @@
 [core]
 	editor = {{ if (eq .chezmoi.os "darwin") }}code --wait{{ else }}vim{{ end }}
 	quotepath = false
-	excludesfile = ~/.gitignore
+	excludesFile = ~/.gitignore
 {{ if (eq .chezmoi.os "darwin") }}
 [gpg]
 	format = ssh
